@@ -2,12 +2,11 @@
 /**
  * Write a description of class Serveur here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Adrien Soursou)
+ * @version (02/06/2019)
  */
 public class Serveur
 {
-    // instance variables - replace the example below with your own
     private int x;
 
     /**
@@ -15,8 +14,7 @@ public class Serveur
      */
     public Serveur()
     {
-        // initialise instance variables
-        x = 0;
+        
     }
 
     /**

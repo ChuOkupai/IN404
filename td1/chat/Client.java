@@ -2,21 +2,21 @@
 /**
  * Write a description of class Client here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Adrien Soursou)
+ * @version (02/06/2019)
  */
 public class Client
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private String nom;
 
     /**
      * Constructor for objects of class Client
      */
-    public Client()
+    public Client(String nom)
     {
-        // initialise instance variables
-        x = 0;
+        if (nom == null)
+            return;
+        this.nom = nom;
     }
 
     /**
@@ -27,7 +27,6 @@ public class Client
      */
     public int sampleMethod(int y)
     {
-        // put your code here
-        return x + y;
+        return y;
     }
 }
