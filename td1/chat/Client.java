@@ -8,6 +8,7 @@
 public class Client
 {
     private String nom;
+    private Serveur serveur;
 
     /**
      * Constructor for objects of class Client
@@ -17,16 +18,28 @@ public class Client
         if (nom == null)
             return;
         this.nom = nom;
+        this.serveur = null;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public boolean seConnecter(Serveur serveur)
     {
-        return y;
+       if (serveur == null)
+            return false;
+       if (serveur.connecter(this)) {
+           this.serveur = serveur;
+           return true;
+       }
+       return false;
+    }
+    
+    public void envoyer(String message)
+    {
+       if (serveur != null)
+            serveur.diffuser(message);
+    }
+    
+    public void recevoir(String message)
+    {
+        System.out.print(nom + " a recu " + message + "\n");
     }
 }

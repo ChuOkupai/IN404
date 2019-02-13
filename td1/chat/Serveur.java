@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class Serveur here.
@@ -7,25 +8,24 @@
  */
 public class Serveur
 {
-    private int x;
+    private ArrayList<Client> salon = null;
 
-    /**
-     * Constructor for objects of class Serveur
-     */
     public Serveur()
     {
-        
+        this.salon = new ArrayList<Client>();
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+    public boolean connecter(Client client)
     {
-        // put your code here
-        return x + y;
+        if (client == null)
+            return false;
+        salon.add(client);
+        return true;
+    }
+    
+    public void diffuser(String message)
+    {
+        for (Client c : salon)
+            c.recevoir(message);  
     }
 }
