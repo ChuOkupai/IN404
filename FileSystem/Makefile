@@ -17,7 +17,10 @@ Regular.class: src/Regular.java File.class
 Main.class: src/Main.java Regular.class Directory.class File.class
 	$(JC) $(JFLAGS) $< $(CDFLAGS)
 
-run: Main.class
-	java $(CDFLAGS) Main
+FileSystem.jar: File.class Directory.class Regular.class Main.class
+	jar cfe $@ Main classes/*.class
 
-all: File.class Directory.class Regular.class Main.class mv
+run: FileSystem.jar
+	java -jar $< Main
+
+all: FileSystem.jar
