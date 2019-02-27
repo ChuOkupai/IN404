@@ -40,9 +40,36 @@ public class Fraction
         return this;
     }
     
-    public boolean equals(Fraction b)
+    public Fraction fractionCanonique()
     {
-        return ((num * b.den) == (den * b.num)) ? true : false;
+        int fnum = this.num, fden = this.den;
+        for (int i = 2; i < den; i++)
+        {
+            if (num % i == 0 && den % i == 0)
+            {
+                fnum = num / i;
+                fden = den / i;
+                i--;
+            }
+        }
+    }
+    
+    
+    @Override
+    public int hashCode()
+    {
+        Fraction f = this.fractionCanonique();
+        return f.getNum() ^ f.getDen();
+    }
+    
+    @Override
+    public boolean equals(Object o)
+    {
+        if (o == null)
+            return false;
+        if (o instanceof Fraction)
+            return (((Fraction)o).getNum() * b.den) == (((Fraction)o).getDen() * b.num);
+        return false;
     }
     
     public String toString()
