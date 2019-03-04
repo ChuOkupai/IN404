@@ -1,26 +1,13 @@
 JC=javac
-JFLAGS=-g -sourcepath src -d classes
-CDFLAGS=-cp classes
+CFLAGS=-g -sourcepath src -d classes
 
 clean:
-	rm -f classes/*.class
+	rm -rf classes *.jar
 
-File.class: src/File.java
-	$(JC) $(JFLAGS) $< $(CDFLAGS)
-
-Directory.class: src/Directory.java File.class
-	$(JC) $(JFLAGS) $< $(CDFLAGS)
-
-Regular.class: src/Regular.java File.class
-	$(JC) $(JFLAGS) $< $(CDFLAGS)
-
-Main.class: src/Main.java Regular.class Directory.class File.class
-	$(JC) $(JFLAGS) $< $(CDFLAGS)
-
-FileSystem.jar: File.class Directory.class Regular.class Main.class
-	jar cfe $@ Main classes/*.class
+FileSystem.jar: src/*.java
+	mkdir -p classes
+	$(JC) $(CFLAGS) src/*.java
+	jar -cfe $@ Main -C classes .
 
 run: FileSystem.jar
 	java -jar $< Main
-
-all: FileSystem.jar
