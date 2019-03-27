@@ -3,6 +3,8 @@ import java.util.Stack;
 public class MoteurRPN
 {
 	private Stack<Double> pile = null;
+	public static final double MAX_VALUE = 10000;
+	public static final double MIN_VALUE = 0.0001;
 	
 	public MoteurRPN()
 	{
@@ -11,21 +13,15 @@ public class MoteurRPN
 	
 	public void enregistrer(double valeur)
 	{
-		pile.push(new Double(valeur));
+		if (valeur >= MIN_VALUE && valeur <= MAX_VALUE)
+			pile.push(valeur);
 	}
 
 	public void appliquer(Operation op)
 	{
 		if (pile.size() < 2)
 			return;
-		Double d1, d2;
-		
-		d1 = pile.peek();
-		pile.pop();
-		d2 = pile.peek();
-		pile.pop();
-		pile.push(new Double (op.eval(d1, d2)));
-
+		pile.push(op.eval(pile.pop(), pile.pop()));
 	}
 
 	public Stack<Double> getStack()
