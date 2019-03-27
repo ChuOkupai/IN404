@@ -13,7 +13,7 @@ public enum Operation
 		@Override
 		public double eval(double a, double b)
 		{
-			return a - b;
+			return b - a;
 		}
 	},
 	MULT('*')
@@ -29,7 +29,7 @@ public enum Operation
 		@Override
 		public double eval(double a, double b)
 		{
-			return a / b;
+			return b / a;
 		}
 	};
 
