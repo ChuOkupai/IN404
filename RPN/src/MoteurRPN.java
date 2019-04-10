@@ -8,7 +8,7 @@ public class MoteurRPN
 	
 	public MoteurRPN()
 	{
-		pile = new Stack();
+		pile = new Stack<Double>();
 	}
 	
 	public void enregistrer(double valeur)

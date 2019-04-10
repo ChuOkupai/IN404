@@ -6,4 +6,4 @@ build: src/*.java
 	javac -sourcepath src -d bin $^
 
 run: build
-	java -cp bin CalculatriceRPN
+	java -cp bin DnsApp 

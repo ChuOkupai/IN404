@@ -32,9 +32,8 @@ public enum Operation
 			return b / a;
 		}
 	};
-
+	
 	private char symbole;
-
 	Operation(char symbole)
 	{
 		this.symbole = symbole;

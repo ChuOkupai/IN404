@@ -4,7 +4,9 @@ enum CalculatriceRPN
 	
 	public void run(String[] args)
 	{
-		System.out.println("wsh");
+		SaisieRPN saisie = new SaisieRPN();
+		
+		saisie.run();
 	}
 	
 	public static void main(String[] args)
