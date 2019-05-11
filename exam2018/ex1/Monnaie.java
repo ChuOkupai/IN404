@@ -1,17 +1,24 @@
 public enum Monnaie
 {
-	EURO("€"),
-	DOLLAR("$");
+	EURO("€", 1),
+	DOLLAR("$", 1.12);
 	
-	private String type;
-
-	Monnaie(String type)
+	private final String symbole;
+	private final double valeur;
+	
+	Monnaie(String symbole, double valeur)
 	{
-		this.type = type;
+		this.symbole = symbole;
+		this.valeur = valeur;
 	}
-
-	public String toString()
+	
+	public String getSymbole()
 	{
-		return type;
+		return symbole;
+	}
+	
+	public double getValeur()
+	{
+		return valeur;
 	}
 }
